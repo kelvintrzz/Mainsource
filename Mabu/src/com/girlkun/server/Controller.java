@@ -67,7 +67,10 @@ public class Controller implements IMessageHandler {
         try {
             player = _session.player;
             byte cmd = _msg.command;
-            if (cmd != -29) {
+            System.err.println("Player   " + player.name + "send message " + player.getCommandCount(cmd) + "cmd" + cmd);
+            if (cmd != -29 || cmd != -74) {
+                System.err.println("Player   " + player.name + "send message " + player.getCommandCount(cmd) + "cmd" + cmd);
+
                 // Check if the same command from the same player has been sent more than 1000 times in the last 5 seconds
                 // Check if it's time to reset the command count
                 if (st - player.getLastCommandTimestamp() >= THRESHOLD_INTERVAL) {
@@ -77,9 +80,9 @@ public class Controller implements IMessageHandler {
 //                // Check if the command count exceeds the limit
                 if (player.getCommandCount(cmd) >= MAX_COMMAND_COUNT) {
                     Service.gI().sendThongBao(player, "Thao tác quá nhiều, bạn sẽ bị ban acc nếu cố tình phá");
-                    System.err.println("Player   " +player.name+  "send message qua nhieu " + player.getCommandCount(cmd) + "cmd" +  cmd);
+                    System.err.println("Player   " + player.name + "send message qua nhieu " + player.getCommandCount(cmd) + "cmd" + cmd);
                     Client.gI().kickSession(_session);
-                } 
+                }
                 // Increment the command count for the player
                 player.incrementCommandCount(cmd);
             }
