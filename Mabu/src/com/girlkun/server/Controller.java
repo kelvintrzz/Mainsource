@@ -67,7 +67,7 @@ public class Controller implements IMessageHandler {
         try {
             player = _session.player;
             byte cmd = _msg.command;
-            if (cmd != -29 || cmd != -74) {
+            if ((cmd != -29 || cmd != -74) && player != null) {
                 // Check if the same command from the same player has been sent more than 1000 times in the last 5 seconds
                 // Check if it's time to reset the command count
                 if (st - player.getLastCommandTimestamp() >= THRESHOLD_INTERVAL) {
