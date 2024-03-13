@@ -5318,7 +5318,7 @@ public class NpcFactory {
                                     this.createOtherMenu(player, ConstNpc.MUA_TT, "|3|Cần x999 lõi thiên tử để đổi áo , giày, quần, lắc thiên tử"
                                             + "\n|3|Cần x9999 lõi thiên tử để đổi găng, cải trang GoKu Thiên Tử\n"
                                             + "\n|3|LƯU Ý: Khi đổi đồ thiên tử bắt buộc ngươi phải có trang bị SKH Thiên Sứ để trao đổi.\n Ví dụ: Đổi áo thiên tử cần x999 Lõi Thiên Tử + 1 Áo SKH Thiên Sứ chỉ số bất kì"
-                                            + "\n|3|Khi đổi cải trang Goku SSJ Thiên Tử, cần có cải trang goku thiên tử. Chỉ số sẽ random từ 80- 180% tùy vào nhân phẩm của ngươi. Nếu ngươi không có cải trang goku thiên tử, ngươi có thể đổi bằng cải trang Goku SSJ God ở mốc nạp 500K và khi đổi với cải trang mốc nạp. Ngươi sẽ không cần tốn 9999 đá thiên tử",
+                                            + "\n|3|Khi đổi cải trang Goku SSJ Thiên Tử, cần có cải trang goku thiên tử. Chỉ số sẽ là 180% sức đánh. \nNếu ngươi không có cải trang goku thiên tử, ngươi có thể đổi bằng cải trang Goku SSJ God ở mốc nạp 500K .\nKhi đổi với cải trang mốc nạp. Ngươi sẽ không cần tốn 9999 đá thiên tử",
                                             "Áo", "Quần", "Găng", "Giày", "Lắc", "GoKu Thiên Tử", "Không thèm");
                                     break;
                                 case 2:
