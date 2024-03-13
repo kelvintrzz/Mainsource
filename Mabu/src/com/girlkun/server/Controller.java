@@ -808,7 +808,7 @@ public class Controller implements IMessageHandler {
     }
 
     private void sendThongBaoServer(Player player) {
-        Service.gI().sendThongBaoFromAdmin(player, "|7| Wellcome Đến Với\b|3| NRO HYPER\b|2| Chúc Anh Em Chơi Game Vui Vẻ");
+        Service.gI().sendThongBaoFromAdmin(player, "|7| Wellcome Đến Với\b|3| NRO HYPER\b|2| Chúc Anh Em Chơi Game Vui Vẻ\b|2| Nếu bị chặn IP, liên hệ admin để mở lại");
     }
 
     private void clearVTSK(Player player) {
