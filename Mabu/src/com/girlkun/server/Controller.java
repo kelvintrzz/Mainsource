@@ -67,7 +67,6 @@ public class Controller implements IMessageHandler {
         try {
             player = _session.player;
             byte cmd = _msg.command;
-            System.err.println("Player   " + player.name + "send message " + player.getCommandCount(cmd) + "cmd" + cmd);
             if (cmd != -29 || cmd != -74) {
                 System.err.println("Player   " + player.name + "send message " + player.getCommandCount(cmd) + "cmd" + cmd);
 
