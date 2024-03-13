@@ -3,6 +3,7 @@ package com.girlkun.services;
 import com.girlkun.models.Template;
 import com.girlkun.models.Template.ItemOptionTemplate;
 import com.girlkun.models.item.Item;
+import com.girlkun.models.item.Item.ItemOption;
 import com.girlkun.models.map.ItemMap;
 import com.girlkun.models.player.Player;
 import com.girlkun.models.shop.ItemShop;
@@ -10,8 +11,6 @@ import com.girlkun.server.Manager;
 import com.girlkun.services.func.CombineServiceNew;
 import com.girlkun.utils.TimeUtil;
 import com.girlkun.utils.Util;
-import com.girlkun.models.item.Item.ItemOption;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -342,84 +341,7 @@ public class ItemService {
             Service.gI().sendThongBao(player, "Bạn phải có ít nhất 1 ô trống hành trang");
         }
     }
-    // public void setThientu(Player pl, int select) throws Exception {
-    //     Item itemUse = InventoryServiceNew.gI().findItem(pl.inventory.itemsBag, 2137);
-    //     if (select < 0 || select > 2) {
-    //         Service.gI().sendThongBao(pl, "Chọn lại đi");
 
-    //         return;
-    //     }
-    //     if (pl.inventory.itemsBody.size() < 6) {
-    //         Service.gI().sendThongBao(pl, "Không đủ đồ thiên tử");
-
-    //         return;
-    //     }
-    //     if (itemUse.isNotNullItem() && itemUse.template.id == 2137) {
-    //         int thientu = pl.thientu;
-    //         Item item0 = pl.inventory.itemsBody.get(0);
-    //         Item item1 = pl.inventory.itemsBody.get(1);
-    //         Item item2 = pl.inventory.itemsBody.get(2);
-    //         Item item3 = pl.inventory.itemsBody.get(3);
-    //         Item item4 = pl.inventory.itemsBody.get(4);
-    //         Item item5 = pl.inventory.itemsBody.get(5);
-    //         if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
-
-    //             if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) {
-
-    //                 if (select == 0) {
-    //                     if (thientu == 1) {
-    //                         return;
-    //                     } else {
-    //                         if (thientu == 2) {
-    //                             pl.nPoint.hpMax /= 10;
-    //                         }
-    //                         if (thientu == 3) {
-    //                             pl.nPoint.mpMax /= 10;
-    //                         }
-    //                         pl.nPoint.dameAfter *= 10;
-    //                         pl.thientu = 1;
-    //                         Service.gI().sendThongBao(pl, "Đã chọn thiên tử sát thương");
-    //                     }
-    //                 } else if (select == 1) {
-    //                     if (thientu == 2) {
-    //                         return;
-    //                     } else {
-    //                         if (thientu == 1) {
-    //                             pl.nPoint.dameAfter /= 10;
-    //                         }
-    //                         if (thientu == 3) {
-    //                             pl.nPoint.mpMax /= 10;
-    //                         }
-    //                         pl.nPoint.hpMax *= 10;
-    //                         pl.thientu = 2;
-    //                         Service.gI().sendThongBao(pl, "Đã chọn thiên tử huyết long");
-    //                     }
-    //                 } else if (select == 2) {
-    //                     if (thientu == 3) {
-    //                         return;
-    //                     } else {
-    //                         if (thientu == 1) {
-    //                             pl.nPoint.dameAfter /= 10;
-    //                         }
-    //                         if (thientu == 2) {
-    //                             pl.nPoint.hpMax /= 10;
-    //                         }
-    //                         pl.nPoint.hpMax *= 10;
-    //                         pl.thientu = 3;
-    //                         Service.gI().sendThongBao(pl, "Đã chọn thiên tử thể trạng");
-    //                     }
-    //                 }
-
-    //             } else {
-    //                 Service.gI().sendThongBao(pl, "Bạn không đủ đồ thiên tử");
-    //             }
-    //         } else {
-    //             Service.gI().sendThongBao(pl, "Bạn không đủ đồ thiên tử");
-
-    //         }
-
-    //     }
-    // }
    
     public void OpenSV(Player player,  int select) throws Exception {
         if (select < 0 || select > 2) return;

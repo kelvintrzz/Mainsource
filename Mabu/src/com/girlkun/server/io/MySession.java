@@ -186,7 +186,7 @@ public class MySession extends Session {
                     Controller.getInstance().sendInfo(this);
 
                     Logger.warning("Login thành công player " + this.player.name + ": " + (System.currentTimeMillis() - st) + " ms\n");
-//                    Service.gI().sendThongBaoOK(this, "Ngọc rồng sao đen sẽ mở lúc 21h hôm nay");
+                    //Service.gI().sendThongBaoOK(this, "Ngọc rồng sao đen sẽ mở lúc 21h hôm nay");
                 }
             } catch (Exception e) {
                 if (player != null) {

@@ -3,7 +3,6 @@ package com.girlkun.models.boss;
 import com.girlkun.consts.ConstPlayer;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.utils.Util;
-import com.girlkun.models.boss.BossID;
 
 /**
  * @Stole By Arriety❤
@@ -1920,7 +1919,7 @@ public class BossesData {
                 "|-1Mỏi tay rồi chứ gì lũ ngu, kakakaka",
                 "|-1Thách cả cha chúng mày vô luôn hahaha",
                 "|-1|Nhờ có ta mà mới có các ngươi",}, //text chat 2
-            new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ CẶC GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
+            new String[]{"|-1|HAHA! ĐÉO CÓ ĐỒ GÌ ĐÂU MẤY CHÚ BÉ  !!!!!!!!!!!!"}, //text chat 3
             REST_15_M
     );
     public static final BossData XENDO = new BossData(

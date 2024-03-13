@@ -13,6 +13,7 @@ import com.girlkun.server.Manager;
 import com.girlkun.services.InventoryServiceNew;
 import com.girlkun.services.ItemTimeService;
 import com.girlkun.services.MapService;
+import com.girlkun.services.Service;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.Util;
 
@@ -799,13 +800,19 @@ public class PlayerDAO {
     public static boolean addvnd(Player player, int num) {
         PreparedStatement ps = null;
         try (Connection con = GirlkunDB.getConnection();) {
-            ps = con.prepareStatement("update account set coin = (coin + ?)  where id = ?");
-            ps.setInt(1, num);
+            if( player.getSession().coin >= 2000000000){
+                Service.gI().sendThongBao(player, "Coin dưới 2 tỷ mới được đổi tiếp");
 
-            ps.setInt(2, player.getSession().userId);
-            ps.executeUpdate();
-            ps.close();
-            player.getSession().coin += num;
+            }else{
+                ps = con.prepareStatement("update account set coin = (coin + ?)  where id = ?");
+                ps.setInt(1, num);
+    
+                ps.setInt(2, player.getSession().userId);
+                ps.executeUpdate();
+                ps.close();
+                player.getSession().coin += num;
+            }
+         
         } catch (Exception e) {
             Logger.logException(PlayerDAO.class, e, "Lỗi update Coin " + player.name);
             return false;

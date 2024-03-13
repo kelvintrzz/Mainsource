@@ -5,7 +5,7 @@ import com.girlkun.utils.Util;
 public class AntiLogin {
 
     private static final byte MAX_WRONG = 5;
-    private static final int TIME_ANTI = 90000;
+    private static final int TIME_ANTI = 60000;
 
     private long lastTimeLogin;
     private int timeCanLogin;

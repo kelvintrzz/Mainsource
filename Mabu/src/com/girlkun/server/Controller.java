@@ -46,10 +46,10 @@ import com.sondao.EffectMapService;
 
 public class Controller implements IMessageHandler {
 
-    private static final long THRESHOLD_INTERVAL = 5000; // 5 seconds
-    private static final int MAX_COMMAND_COUNT = 500;
+    private static final long THRESHOLD_INTERVAL = 1000; // 5 seconds
+    private static final int MAX_COMMAND_COUNT = 100;
 
-    private Map<Player, Map<Byte, Long>> playerCommandCountMap = new HashMap<>();
+    // private Map<Player, Map<Byte, Long>> playerCommandCountMap = new HashMap<>();
     private static Controller instance;
 
     public static Controller getInstance() {
@@ -74,17 +74,12 @@ public class Controller implements IMessageHandler {
                     player.resetCommandCount();
                 }
 
-                // Check if the command count exceeds the limit
+//                // Check if the command count exceeds the limit
                 if (player.getCommandCount(cmd) >= MAX_COMMAND_COUNT) {
                     Service.gI().sendThongBao(player, "Thao tác quá nhiều, bạn sẽ bị ban acc nếu cố tình phá");
-                    //System.err.println("Player   " +player.name+  "thaotacquanhieu  " + player.getCommandCount(cmd) + "cmd" +  cmd);
+                    System.err.println("Player   " +player.name+  "send message qua nhieu " + player.getCommandCount(cmd) + "cmd" +  cmd);
                     Client.gI().kickSession(_session);
-                    
-                } else {
-                    //Service.gI().sendThongBao(player, "player.getCommandCount(cmd)");
-                   // System.err.println("Player  "+ player.name + "    message gui trong 5s  " + player.getCommandCount(cmd) + "cmd" +  cmd);
-                }
-
+                } 
                 // Increment the command count for the player
                 player.incrementCommandCount(cmd);
             }

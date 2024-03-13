@@ -3443,12 +3443,12 @@ public class CombineServiceNew {
     }
 
     private boolean isDaPhaLe(Item item) {
-        return item != null && (item.template.type == 30 || item.template.id == 2111 || (item.template.id >= 14 && item.template.id <= 20) || item.template.id >= 2164 || item.template.id >= 2166|| item.template.id >= 2170|| item.template.id >= 2174|| item.template.id >= 2175|| (item.template.id >= 2102 && item.template.id <= 2104));
+        return item != null && (item.template.type == 30 || item.template.id == 2111 || (item.template.id >= 14 && item.template.id <= 20) || item.template.id >= 2164 || (item.template.id >= 2102 && item.template.id <= 2104));
     }
 
     private boolean isTrangBiPhaLeHoa(Item item) {
         if (item != null && item.isNotNullItem()) {
-            if (item.template.type < 5 || item.template.type == 11 || item.template.type == 32 || item.template.type == 23 || item.template.type == 21 || (item.template.id >= 1149 && item.template.id <= 1151) || item.template.id == 1136 ) {
+            if (item.template.type < 5 || item.template.type == 11 || item.template.type == 32 || item.template.type == 23 || item.template.type == 21 || (item.template.id >= 1149 && item.template.id <= 1151) ) {
                 return true;
             } else {
                 return false;

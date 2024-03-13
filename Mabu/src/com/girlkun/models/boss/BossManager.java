@@ -133,14 +133,14 @@ public class BossManager implements Runnable {
             // this.createBoss(BossID.GOHAN_BEAST);
             // this.createBoss(BossID.MORIMATA);
             // this.createBoss(BossID.GOKU_SVIP);
-// this.createBoss(BossID.ONGNOEL);
-//            this.createBoss(BossID.SKNOEL);           
-            this.createBoss(BossID.RONGVANG);
+            // this.createBoss(BossID.ONGNOEL);
+            // this.createBoss(BossID.SKNOEL);           
+            // this.createBoss(BossID.RONGVANG);
             // this.createBoss(BossID.XENDO);
             // this.createBoss(BossID.ZENO);
             // this.createBoss(BossID.RONGTAAC);
             // this.createBoss(BossID.WUKONG);
-            this.createBoss(BossID.ZAMASFUSION);
+            // this.createBoss(BossID.ZAMASFUSION);
             this.createBoss(BossID.HEARTGOD);
             this.createBoss(BossID.GOKU4);
             this.createBoss(BossID.DORAEMON);
@@ -158,14 +158,11 @@ public class BossManager implements Runnable {
             this.createBoss(BossID.MAP_DAU_DINH);
             this.createBoss(BossID.RAMBO);
             // this.createBoss(BossID.KHI_ULTRA);
-            
             this.createBoss(BossID.GRANOLA);
             this.createBoss(BossID.FIDE);
-
             this.createBoss(BossID.DR_KORE);
-
             this.createBoss(BossID.ANDROID_14);
-//            this.createBoss(BossID.SUPER_ANDROID_17); 
+            // this.createBoss(BossID.SUPER_ANDROID_17); 
             this.createBoss(BossID.MABU);
         } catch (Exception ex) {
             ex.printStackTrace();

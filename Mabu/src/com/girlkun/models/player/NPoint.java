@@ -12,7 +12,6 @@ import com.girlkun.services.*;
 import com.girlkun.utils.Logger;
 import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -902,7 +901,7 @@ public class NPoint {
             this.hpMax *= 2;
         }// item sieu cawsp
         if (this.player.itemTime != null && this.player.itemTime.isUseBoHuyet2) {
-            this.hpMax *= 2.2;
+            this.hpMax *= 2;
         }
         if (this.player.zone != null && MapService.gI().isMapCold(this.player.zone.map) && !this.isKhongLanh) {
             this.hpMax /= 2;
@@ -922,7 +921,7 @@ public class NPoint {
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
                     if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
-                        this.hpMax*=10;
+                        this.hpMax*=2;
                     } else {
                         player.thientu = 0;
                     }
@@ -1100,7 +1099,7 @@ public class NPoint {
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
                     if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
-                        this.mpMax*=10;
+                        this.mpMax*=2;
                     } else {
                         player.thientu = 0;
                     }
@@ -1292,7 +1291,7 @@ public class NPoint {
                 if (item0.isNotNullItem() && item1.isNotNullItem() && item2.isNotNullItem() && item3.isNotNullItem() && item4.isNotNullItem() && item5.isNotNullItem()) {
 
                     if (item0.template.id == 2156 && item1.template.id == 2157 && item2.template.id == 2158 && item3.template.id == 2159 && item4.template.id == 2160 && item5.template.id == 2162) { //ctthientu
-                        this.dame*=10;
+                        this.dame*=2;
                     } else {
                         player.thientu = 0;
                     }
