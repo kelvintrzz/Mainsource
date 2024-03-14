@@ -72,6 +72,7 @@ public class UseItem {
             if (index == -1) {
                 return;
             }
+           
             switch (type) {
                 case ITEM_BOX_TO_BODY_OR_BAG:
                     InventoryServiceNew.gI().itemBoxToBodyOrBag(player, index);
@@ -87,10 +88,17 @@ public class UseItem {
                     InventoryServiceNew.gI().itemBagToBody(player, index);
                     break;
                 case ITEM_BODY_TO_BAG:
-                    InventoryServiceNew.gI().itemBodyToBag(player, index);
+                  
+                        InventoryServiceNew.gI().itemBodyToBag(player, index);
                     break;
                 case ITEM_BAG_TO_PET_BODY:
+                     if(index > 7){
+                        Service.gI().sendThongBao(player, "Không thể thực hiện và vui lòng không spam");
+                        return;
+                    }else{
                     InventoryServiceNew.gI().itemBagToPetBody(player, index);
+                    }
+
                     break;
                 case ITEM_BODY_PET_TO_BAG:
                     InventoryServiceNew.gI().itemPetBodyToBag(player, index);

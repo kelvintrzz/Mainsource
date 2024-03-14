@@ -764,45 +764,46 @@ public class SkillService {
     }
 
     private void useSkillBuffToPlayer(Player player, Player plTarget) {
-        switch (player.playerSkill.skillSelect.template.id) {
-            case Skill.TRI_THUONG:
-                List<Player> players = new ArrayList();
-                int percentTriThuong = SkillUtil.getPercentTriThuong(player.playerSkill.skillSelect.point);
-                int point = player.playerSkill.skillSelect.point;
-                if (canHsPlayer(player, plTarget)) {
-                    players.add(plTarget);
-                    List<Player> playersMap = player.zone.getNotBosses();
-                    for (Player pl : playersMap) {
-                        if (!pl.equals(plTarget)) {
-                            if (canHsPlayer(player, plTarget) && Util.getDistance(player, pl) <= 300) {
-                                players.add(pl);
-                            } else {
-                                Service.getInstance().sendThongBao(player, "lỗi buff");
-                            }
-                        }
-                    }
-                    playerAttackPlayer(player, plTarget, false);
-                    for (Player pl : players) {
-                        boolean isDie = pl.isDie();
-                        long hpHoi = pl.nPoint.hpMax * percentTriThuong / 100;
-                        long mpHoi = pl.nPoint.mpMax * percentTriThuong / 100;
-                        pl.nPoint.addHp(hpHoi);
-                        pl.nPoint.addMp(mpHoi);
-                        if (isDie) {
-                            Service.gI().hsChar(pl, hpHoi, mpHoi);
-                            PlayerService.gI().sendInfoHpMp(pl);
-                        } else {
-                            Service.gI().Send_Info_NV(pl);
-                            PlayerService.gI().sendInfoHpMp(pl);
-                        }
-                    }
-                    long hpHoiMe = player.nPoint.hp * percentTriThuong / 100;
-                    player.nPoint.addHp(hpHoiMe);
-                    PlayerService.gI().sendInfoHp(player);
-                }
-                affterUseSkill(player, player.playerSkill.skillSelect.template.id);
-                break;
-        }
+        Service.gI().sendThongBao(player, "Hiện đang lỗi, ad đang fix");
+        // switch (player.playerSkill.skillSelect.template.id) {
+        //     case Skill.TRI_THUONG:
+        //         List<Player> players = new ArrayList();
+        //         int percentTriThuong = SkillUtil.getPercentTriThuong(player.playerSkill.skillSelect.point);
+        //         int point = player.playerSkill.skillSelect.point;
+        //         if (canHsPlayer(player, plTarget)) {
+        //             players.add(plTarget);
+        //             List<Player> playersMap = player.zone.getNotBosses();
+        //             for (Player pl : playersMap) {
+        //                 if (!pl.equals(plTarget)) {
+        //                     if (canHsPlayer(player, plTarget) && Util.getDistance(player, pl) <= 300) {
+        //                         players.add(pl);
+        //                     } else {
+        //                         Service.getInstance().sendThongBao(player, "lỗi buff");
+        //                     }
+        //                 }
+        //             }
+        //             playerAttackPlayer(player, plTarget, false);
+        //             for (Player pl : players) {
+        //                 boolean isDie = pl.isDie();
+        //                 long hpHoi = pl.nPoint.hpMax * percentTriThuong / 100;
+        //                 long mpHoi = pl.nPoint.mpMax * percentTriThuong / 100;
+        //                 pl.nPoint.addHp(hpHoi);
+        //                 pl.nPoint.addMp(mpHoi);
+        //                 if (isDie) {
+        //                     Service.gI().hsChar(pl, hpHoi, mpHoi);
+        //                     PlayerService.gI().sendInfoHpMp(pl);
+        //                 } else {
+        //                     Service.gI().Send_Info_NV(pl);
+        //                     PlayerService.gI().sendInfoHpMp(pl);
+        //                 }
+        //             }
+        //             long hpHoiMe = player.nPoint.hp * percentTriThuong / 100;
+        //             player.nPoint.addHp(hpHoiMe);
+        //             PlayerService.gI().sendInfoHp(player);
+        //         }
+        //         affterUseSkill(player, player.playerSkill.skillSelect.template.id);
+        //         break;
+        // }
     }
 
     private void phanSatThuong(Player plAtt, Player plTarget, long dame) {

@@ -590,7 +590,13 @@ public class Controller implements IMessageHandler {
                         if (Manager.LOCAL) {
                             break;
                         }
-                        System.out.println("version: " + msg.readUTF());
+                       // System.out.println("version: " + msg.readUTF());
+                        System.out.println("sai tkmk ở msg" + msg);                        
+                        System.out.println("cmd" + cmd);                        
+                        System.out.println("sai" + msg.reader().readUTF());
+
+//                        System.out.println("msg1" + session.login(msg.reader().readUTF(), msg.reader().readUTF()));
+
                         break;
                     case 2:
                         Service.gI().setClientType(session, msg);
