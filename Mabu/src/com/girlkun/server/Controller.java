@@ -337,7 +337,8 @@ public class Controller implements IMessageHandler {
                     }
                     break;
                 case -74:
-                    byte type = _msg.reader().readByte();
+                byte type = _msg.reader().readByte();
+                System.err.println("type : " + type + ", cmd : " + cmd + ", _msg : " + _msg + ", _session : " + _session);
                     if (type == 1) {
                         DataGame.sendSizeRes(_session);
                     } else if (type == 2) {
