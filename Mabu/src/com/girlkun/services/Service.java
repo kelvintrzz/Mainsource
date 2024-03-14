@@ -55,21 +55,22 @@ public class Service {
     private static Service instance;
     public long lasttimechatbanv = 0;
     public long lasttimechatmuav = 0;
-    
+
     public static Service gI() {
         if (instance == null) {
             instance = new Service();
         }
         return instance;
     }
+
     public static Service getInstance() {
         if (instance == null) {
             instance = new Service();
         }
         return instance;
     }
-    
-    public void showListTop(Player player,  List<TOP> tops) {
+
+    public void showListTop(Player player, List<TOP> tops) {
         Message msg;
         try {
             msg = new Message(-96);
@@ -82,7 +83,7 @@ public class Service {
                 msg.writer().writeInt(i + 1);
                 msg.writer().writeInt((int) pl.id);
                 msg.writer().writeShort(pl.getHead());
-                if(player.getSession().version > 214){
+                if (player.getSession().version > 214) {
                     msg.writer().writeShort(-1);
                 }
                 msg.writer().writeShort(pl.getBody());
@@ -97,7 +98,7 @@ public class Service {
             e.printStackTrace();
         }
     }
-    
+
     public void sendPopUpMultiLine(Player pl, int tempID, int avt, String text) {
         Message msg = null;
         try {
@@ -116,7 +117,7 @@ public class Service {
             }
         }
     }
-    
+
     public void sendPetFollow(Player player, short smallID) {
         Message msg;
         try {
@@ -124,8 +125,7 @@ public class Service {
             msg.writer().writeInt((int) player.id);
             if (smallID == 0) {
                 msg.writer().writeByte(0);
-            }
-            else {
+            } else {
 
                 msg.writer().writeByte(1);
                 msg.writer().writeShort(smallID);
@@ -133,132 +133,132 @@ public class Service {
                 int[] fr = new int[]{};
                 switch (smallID) {
 
-                case 14420:
-                    fr = new int[]{0, 1, 2, 3, 4, 5};
-                    break;
-                case 16167:
-                case 16149:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70};
-                    break;
-                case 16147:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43
-                    };
-                    break;
-                case 16151:
-                fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
-                    break;
-                case 15751:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
-                    break;
-                case 16153:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
-                    break;
+                    case 14420:
+                        fr = new int[]{0, 1, 2, 3, 4, 5};
+                        break;
+                    case 16167:
+                    case 16149:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70};
+                        break;
+                    case 16147:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43
+                        };
+                        break;
+                    case 16151:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
+                        break;
+                    case 15751:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
+                        break;
+                    case 16153:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
+                        break;
 
-                case 16155:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 , 91, 92, 93, 94 };
-                    break;
-                case 16157:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80};
-                    break;
-                case 16159:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
-                    break; 
-                case 16161:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76};
-                    break;
-                case 16163:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
-                    break;
-                case 16165:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
-                    break;
-                case 16169:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79};
-                    break;
-                case 16171:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
-                    break;
-                case 15773:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32};
-                    break;
-                case 15775:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
-                    break;
-                case 16278:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6};
-                    break;
-                default:
+                    case 16155:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94};
+                        break;
+                    case 16157:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80};
+                        break;
+                    case 16159:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
+                        break;
+                    case 16161:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76};
+                        break;
+                    case 16163:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
+                        break;
+                    case 16165:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
+                        break;
+                    case 16169:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79};
+                        break;
+                    case 16171:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60};
+                        break;
+                    case 15773:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32};
+                        break;
+                    case 15775:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
+                        break;
+                    case 16278:
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6};
+                        break;
+                    default:
 //                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180 };
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
-                    break;
-            }
+                        fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
+                        break;
+                }
                 msg.writer().writeByte(fr.length);
                 for (int i = 0; i < fr.length; i++) {
                     msg.writer().writeByte(fr[i]);
                 }
                 switch (smallID) {
-   case 14420:
-   case 14432:
-   case 14434:
-   case 16278:
-      msg.writer().writeShort(225);
-      msg.writer().writeShort(225);
-      break;
-   case 16147:
-   case 16149:
-   case 16151:
-   case 16161:
-   case 16169:
-      msg.writer().writeShort(70);
-      msg.writer().writeShort(70);
-      break;
-   case 15751:
-      msg.writer().writeShort(289);
-      msg.writer().writeShort(289);
-      break;
-   case 16153:
-      msg.writer().writeShort(86);
-      msg.writer().writeShort(86);
-      break;
-   case 16157:
-   case 16159:
-   case 16171:
-   case 16167:
-      msg.writer().writeShort(96);
-      msg.writer().writeShort(96);
-      break;
-   case 15775:
-      msg.writer().writeShort(175);
-      msg.writer().writeShort(175);
-      break;
-   case 16155:
-   case 16276:
-   case 16282:
-      msg.writer().writeShort(75);
-      msg.writer().writeShort(75);
-      break;
-   case 16163:
-   case 16165:
-      msg.writer().writeShort(50);
-      msg.writer().writeShort(50);
-      break;
-   case 15773:
-      msg.writer().writeShort(150);
-      msg.writer().writeShort(150);
-      break;
-   case 15067:
-      msg.writer().writeShort(65);
-      msg.writer().writeShort(65);
-       break;
-   case 16280:
-      msg.writer().writeShort(112);
-      msg.writer().writeShort(112);
-      break;
-   default:
-      msg.writer().writeShort(75);
-      msg.writer().writeShort(75);
-      break;
-}
+                    case 14420:
+                    case 14432:
+                    case 14434:
+                    case 16278:
+                        msg.writer().writeShort(225);
+                        msg.writer().writeShort(225);
+                        break;
+                    case 16147:
+                    case 16149:
+                    case 16151:
+                    case 16161:
+                    case 16169:
+                        msg.writer().writeShort(70);
+                        msg.writer().writeShort(70);
+                        break;
+                    case 15751:
+                        msg.writer().writeShort(289);
+                        msg.writer().writeShort(289);
+                        break;
+                    case 16153:
+                        msg.writer().writeShort(86);
+                        msg.writer().writeShort(86);
+                        break;
+                    case 16157:
+                    case 16159:
+                    case 16171:
+                    case 16167:
+                        msg.writer().writeShort(96);
+                        msg.writer().writeShort(96);
+                        break;
+                    case 15775:
+                        msg.writer().writeShort(175);
+                        msg.writer().writeShort(175);
+                        break;
+                    case 16155:
+                    case 16276:
+                    case 16282:
+                        msg.writer().writeShort(75);
+                        msg.writer().writeShort(75);
+                        break;
+                    case 16163:
+                    case 16165:
+                        msg.writer().writeShort(50);
+                        msg.writer().writeShort(50);
+                        break;
+                    case 15773:
+                        msg.writer().writeShort(150);
+                        msg.writer().writeShort(150);
+                        break;
+                    case 15067:
+                        msg.writer().writeShort(65);
+                        msg.writer().writeShort(65);
+                        break;
+                    case 16280:
+                        msg.writer().writeShort(112);
+                        msg.writer().writeShort(112);
+                        break;
+                    default:
+                        msg.writer().writeShort(75);
+                        msg.writer().writeShort(75);
+                        break;
+                }
             }
             sendMessAllPlayerInMap(player, msg);
             msg.cleanup();
@@ -293,7 +293,7 @@ public class Service {
                     fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43};
                     break;
                 case 16151:
-                fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
+                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50};
                     break;
                 case 15751:
                     fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
@@ -303,7 +303,7 @@ public class Service {
                     break;
 
                 case 16155:
-                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 , 91, 92, 93, 94 };
+                    fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94};
                     break;
                 case 16157:
                     fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80};
@@ -340,84 +340,85 @@ public class Service {
                     fr = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
                     break;
             }
-                msg.writer().writeByte(fr.length);
-                for (int i = 0; i < fr.length; i++) {
-                    msg.writer().writeByte(fr[i]);
-                }
-                switch (smallId) {
-   case 14420:
-   case 14432:
-   case 14434:
-   case 16278:
-      msg.writer().writeShort(225);
-      msg.writer().writeShort(225);
-      break;
-   case 16147:
-   case 16149:
-   case 16151:
-   case 16161:
-   case 16169:
-      msg.writer().writeShort(70);
-      msg.writer().writeShort(70);
-      break;
-   case 15751:
-      msg.writer().writeShort(289);
-      msg.writer().writeShort(289);
-      break;
-   case 16153:
-      msg.writer().writeShort(86);
-      msg.writer().writeShort(86);
-      break;
-   case 16157:
-   case 16159:
-   case 16171:
-   case 16167:
+            msg.writer().writeByte(fr.length);
+            for (int i = 0; i < fr.length; i++) {
+                msg.writer().writeByte(fr[i]);
+            }
+            switch (smallId) {
+                case 14420:
+                case 14432:
+                case 14434:
+                case 16278:
+                    msg.writer().writeShort(225);
+                    msg.writer().writeShort(225);
+                    break;
+                case 16147:
+                case 16149:
+                case 16151:
+                case 16161:
+                case 16169:
+                    msg.writer().writeShort(70);
+                    msg.writer().writeShort(70);
+                    break;
+                case 15751:
+                    msg.writer().writeShort(289);
+                    msg.writer().writeShort(289);
+                    break;
+                case 16153:
+                    msg.writer().writeShort(86);
+                    msg.writer().writeShort(86);
+                    break;
+                case 16157:
+                case 16159:
+                case 16171:
+                case 16167:
 
-      msg.writer().writeShort(96);
-      msg.writer().writeShort(96);
-      break;
-   case 15775:
-      msg.writer().writeShort(175);
-      msg.writer().writeShort(175);
-      break;
-   case 16155:
-   case 16276:
-   case 16282:
-      msg.writer().writeShort(75);
-      msg.writer().writeShort(75);
-      break;
-   case 16163:
-   case 16165:
-      msg.writer().writeShort(50);
-      msg.writer().writeShort(50);
-      break;
-   case 15773:
-      msg.writer().writeShort(150);
-      msg.writer().writeShort(150);
-      break;
-   case 15067:
-      msg.writer().writeShort(65);
-      msg.writer().writeShort(65);
-       break;
-   case 16280:
-      msg.writer().writeShort(112);
-      msg.writer().writeShort(112);
-      break;
-   default:
-      msg.writer().writeShort(75);
-      msg.writer().writeShort(75);
-      break;
-                }
+                    msg.writer().writeShort(96);
+                    msg.writer().writeShort(96);
+                    break;
+                case 15775:
+                    msg.writer().writeShort(175);
+                    msg.writer().writeShort(175);
+                    break;
+                case 16155:
+                case 16276:
+                case 16282:
+                    msg.writer().writeShort(75);
+                    msg.writer().writeShort(75);
+                    break;
+                case 16163:
+                case 16165:
+                    msg.writer().writeShort(50);
+                    msg.writer().writeShort(50);
+                    break;
+                case 15773:
+                    msg.writer().writeShort(150);
+                    msg.writer().writeShort(150);
+                    break;
+                case 15067:
+                    msg.writer().writeShort(65);
+                    msg.writer().writeShort(65);
+                    break;
+                case 16280:
+                    msg.writer().writeShort(112);
+                    msg.writer().writeShort(112);
+                    break;
+                default:
+                    msg.writer().writeShort(75);
+                    msg.writer().writeShort(75);
+                    break;
+            }
 
             sendMessAllPlayerInMap(pl, msg);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void sendMessAllPlayer(Message msg) {
         PlayerService.gI().sendMessageAllPlayer(msg);
-    }   
-    
+    }
+
     public void sendMessAllPlayerIgnoreMe(Player player, Message msg) {
         PlayerService.gI().sendMessageIgnore(player, msg);
     }
@@ -457,7 +458,7 @@ public class Service {
                 msg.dispose();
                 return;
             }
-            for (int i = 0 ; i < players.size();i++) {
+            for (int i = 0; i < players.size(); i++) {
                 Player pl = players.get(i);
                 if (pl != null) {
                     pl.sendMessage(msg);
@@ -498,6 +499,7 @@ public class Service {
 
         }
     }
+
     public void sendMessAnotherNotMeInMap(Player player, Message msg) {
         if (player == null || player.zone == null) {
             msg.dispose();
@@ -516,6 +518,7 @@ public class Service {
         msg.cleanup();
 
     }
+
     public void Send_Info_NV(Player pl) {
         Message msg;
         try {
@@ -616,8 +619,8 @@ public class Service {
 //            BossManager.gI().loadBoss();
 //            return;
 //        }
-        
-         if (player.getSession() != null && text.equals("info")) {
+
+        if (player.getSession() != null && text.equals("info")) {
             DecimalFormat decimalFormat = new DecimalFormat("#,###");
             String hp = decimalFormat.format(player.nPoint.hp);
             String hpMax = decimalFormat.format(player.nPoint.hpMax);
@@ -633,7 +636,7 @@ public class Service {
         }
 
         if (player.getSession() != null && player.isAdmin()) {
-           if (text.startsWith("i ")) {
+            if (text.startsWith("i ")) {
                 String a[] = text.replace("i ", "").split(" ");
                 short id = Short.parseShort(a[0]);
                 int quan;
@@ -661,10 +664,10 @@ public class Service {
                     str += b.name + "\n";
                 }
                 sendThongBao(player, str);
-            } else if (text.equals("n"))  { // && player.name.equals("theking")) {
+            } else if (text.equals("n")) { // && player.name.equals("theking")) {
                 Input.gI().createFormNapCoin(player);
-            } else if (text.equals("nk"))  { // && player.name.equals("theking")) {
-                Input.gI().createFormNapCoinKey(player);        
+            } else if (text.equals("nk")) { // && player.name.equals("theking")) {
+                Input.gI().createFormNapCoinKey(player);
             } else if (text.equals("vt")) {
                 sendThongBao(player, player.location.x + " - " + player.location.y + "\n"
                         + player.zone.map.yPhysicInTop(player.location.x, player.location.y));
@@ -678,7 +681,6 @@ public class Service {
 //                    msg.cleanup();
 //                } catch (Exception e) {
 //                }
-
 //                try {
 //                    msg = new Message(113);
 //                    msg.writer().writeByte(111);
@@ -781,17 +783,17 @@ public class Service {
                     e.printStackTrace();
                 }
             }
-            if (text.equals("nrnm")){
+            if (text.equals("nrnm")) {
                 Service.gI().activeNamecShenron(player);
             }
             if (text.equals("ts")) {
                 sendThongBao(player, "Time start server: " + ServerManager.timeStart + "\n");
                 return;
             }
-            
-            if (text.equals("7979")) {
+
+            if (text.equals("lagininhthuan")) {
                 NpcService.gI().createMenuConMeo(player, ConstNpc.MENU_ADMIN, -1, "|7| Quản Trị Viên\b|2| Nro Hyper\b|4| Player Online: " + Client.gI().getPlayers().size() + "\n",
-                         "Bảo trì", "Tìm kiếm\nngười chơi", "Boss","Giftcode", "Nạp","Buff\nitem","Nạp cho\nKey","Nạp coin toàn Sever","Gọi boss","Buffitem 2","Đóng");
+                        "Bảo trì", "Tìm kiếm\nngười chơi", "Boss", "Giftcode", "Nạp", "Buff\nitem", "Nạp cho\nKey", "Nạp coin toàn Sever", "Gọi boss", "Buffitem 2", "Đóng");
                 return;
 
             } else if (text.startsWith("upp")) {
@@ -819,20 +821,20 @@ public class Service {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else if (text.startsWith("i")){
-                    int itemId = Integer.parseInt(text.replace("i" , ""));
-                    Item item = ItemService.gI().createNewItem(((short)itemId));
-                    ItemShop it = new Shop().getItemShop(itemId);
-                    if(it != null && !it.options.isEmpty()){
-                        item.itemOptions.addAll(it.options);
-                    }
-                    InventoryServiceNew.gI().addItemBag(player, item);
-                    InventoryServiceNew.gI().sendItemBags(player);
-                    Service.gI().sendThongBao(player, "GET " + item.template.name +" ["+ item.template.id + "] SUCCESS !");
-                
-            }else if (text.equals("item")){
+            } else if (text.startsWith("i")) {
+                int itemId = Integer.parseInt(text.replace("i", ""));
+                Item item = ItemService.gI().createNewItem(((short) itemId));
+                ItemShop it = new Shop().getItemShop(itemId);
+                if (it != null && !it.options.isEmpty()) {
+                    item.itemOptions.addAll(it.options);
+                }
+                InventoryServiceNew.gI().addItemBag(player, item);
+                InventoryServiceNew.gI().sendItemBags(player);
+                Service.gI().sendThongBao(player, "GET " + item.template.name + " [" + item.template.id + "] SUCCESS !");
+
+            } else if (text.equals("item")) {
                 Input.gI().createFormGiveItem(player);
-                    
+
             } else if (text.equals("thread")) {
                 sendThongBao(player, "Current thread: " + Thread.activeCount());
                 Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
@@ -849,13 +851,13 @@ public class Service {
                 }
             }
         }
-        
+
         if (text.startsWith("ten con la ")) {
             PetService.gI().changeNamePet(player, text.replaceAll("ten con la ", ""));
         }
         if (text.equals("a")) {
-                BossManager.gI().showListBoss(player);
-                return;
+            BossManager.gI().showListBoss(player);
+            return;
 
         }
 
@@ -899,7 +901,7 @@ public class Service {
         } catch (Exception e) {
         }
     }
-    
+
     public void Transport(Player pl) {
         Message msg = null;
         try {
@@ -962,7 +964,7 @@ public class Service {
     public void point(Player player) {
         player.nPoint.calPoint();
         Send_Info_NV(player);
-        if (!player.isPet && !player.isBoss&&!player.isNewPet) {
+        if (!player.isPet && !player.isBoss && !player.isNewPet) {
             Message msg;
             try {
                 msg = new Message(-42);
@@ -991,27 +993,29 @@ public class Service {
             }
         }
     }
-private void activeNamecShenron(Player pl) {
+
+    private void activeNamecShenron(Player pl) {
         Message msg;
         try {
             msg = new Message(-83);
             msg.writer().writeByte(0);
-            
-                msg.writer().writeShort(pl.zone.map.mapId);
-                msg.writer().writeShort(pl.zone.map.bgId);
-                msg.writer().writeByte(pl.zone.zoneId);
-                msg.writer().writeInt((int) pl.id);
-                msg.writer().writeUTF("");
-                msg.writer().writeShort(pl.location.x);
-                msg.writer().writeShort(pl.location.y);
-                msg.writer().writeByte(1);
-             //   lastTimeShenronWait = System.currentTimeMillis();
-             //   isShenronAppear = true;
-            
-            Service.gI().sendMessAllPlayerInMap(pl,msg);
+
+            msg.writer().writeShort(pl.zone.map.mapId);
+            msg.writer().writeShort(pl.zone.map.bgId);
+            msg.writer().writeByte(pl.zone.zoneId);
+            msg.writer().writeInt((int) pl.id);
+            msg.writer().writeUTF("");
+            msg.writer().writeShort(pl.location.x);
+            msg.writer().writeShort(pl.location.y);
+            msg.writer().writeByte(1);
+            //   lastTimeShenronWait = System.currentTimeMillis();
+            //   isShenronAppear = true;
+
+            Service.gI().sendMessAllPlayerInMap(pl, msg);
         } catch (Exception e) {
         }
     }
+
     public void player(Player pl) {
         if (pl == null) {
             return;
@@ -1126,7 +1130,6 @@ private void activeNamecShenron(Player pl) {
             msg.writer().writeByte(pl.isNewMember ? 1 : 0); //is new member
 
 //            if (pl.isAdmin()) {
-           
 ////            msg.writer().writeShort(pl.idAura); //idauraeff
             msg.writer().writeShort(pl.getAura()); //idauraeff
             msg.writer().writeByte(pl.getEffFront());
@@ -1276,8 +1279,8 @@ private void activeNamecShenron(Player pl) {
             return "Giới Vương Thần cấp 3";
         } else if (sucmanh < 150010000000L) {
             return "Vương Diệt Thần";
-         } else if (sucmanh < 21100010000000L) {
-            return "Hạn Diệt Thần";    
+        } else if (sucmanh < 21100010000000L) {
+            return "Hạn Diệt Thần";
         }
         return "Thần Huỷ Diệt cấp 2";
     }
@@ -1322,8 +1325,8 @@ private void activeNamecShenron(Player pl) {
             return 18;
         } else if (sucmanh < 100010000000L) {
             return 19;
-         } else if (sucmanh < 150010000000L) {
-            return 20;    
+        } else if (sucmanh < 150010000000L) {
+            return 20;
         } else if (sucmanh < 2100010000000L) {
             return 21;
         }
@@ -1336,7 +1339,7 @@ private void activeNamecShenron(Player pl) {
             pl.setJustRevivaled();
             pl.nPoint.setHp(hp);
             pl.nPoint.setMp(mp);
-            if (!pl.isPet&&!pl.isNewPet) {
+            if (!pl.isPet && !pl.isNewPet) {
                 msg = new Message(-16);
                 pl.sendMessage(msg);
                 msg.cleanup();
@@ -1363,17 +1366,17 @@ private void activeNamecShenron(Player pl) {
     public void charDie(Player pl) {
         Message msg;
         try {
-            if (!pl.isPet&&!pl.isNewPet) {
+            if (!pl.isPet && !pl.isNewPet) {
                 msg = new Message(-17);
                 msg.writer().writeByte((int) pl.id);
                 msg.writer().writeShort(pl.location.x);
                 msg.writer().writeShort(pl.location.y);
                 pl.sendMessage(msg);
                 msg.cleanup();
-            } else if(pl.isPet){
+            } else if (pl.isPet) {
                 ((Pet) pl).lastTimeDie = System.currentTimeMillis();
             }
-            if(!pl.isPet && !pl.isBoss&& pl.idNRNM != -1){
+            if (!pl.isPet && !pl.isBoss && pl.idNRNM != -1) {
                 ItemMap itemMap = new ItemMap(pl.zone, pl.idNRNM, 1, pl.location.x, pl.location.y, -1);
                 Service.gI().dropItemMap(pl.zone, itemMap);
                 NgocRongNamecService.gI().pNrNamec[pl.idNRNM - 353] = "";
@@ -1382,7 +1385,7 @@ private void activeNamecShenron(Player pl) {
                 PlayerService.gI().changeAndSendTypePK(pl, ConstPlayer.NON_PK);
                 Service.gI().sendFlagBag(pl);
             }
-            if(pl.zone.map.mapId == 51){
+            if (pl.zone.map.mapId == 51) {
                 ChangeMapService.gI().changeMapBySpaceShip(pl, 21 + pl.gender, 0, -1);
             }
             msg = new Message(-8);
@@ -1403,7 +1406,7 @@ private void activeNamecShenron(Player pl) {
         if (pl != null && pl.zone != null) {
             for (Mob mob : pl.zone.mobs) {
                 if (mob.id == mobId) {
-                    SkillService.gI().useSkill(pl, null, mob,null);
+                    SkillService.gI().useSkill(pl, null, mob, null);
                     break;
                 }
             }
@@ -1524,11 +1527,11 @@ private void activeNamecShenron(Player pl) {
         } catch (Exception e) {
         }
     }
-    
+
     public void sendThongBao(List<Player> pl, String thongBao) {
-        for(int i = 0 ; i < pl.size();i++){
+        for (int i = 0; i < pl.size(); i++) {
             Player ply = pl.get(i);
-            if(ply != null){
+            if (ply != null) {
                 this.sendThongBao(ply, thongBao);
             }
         }
@@ -1638,7 +1641,6 @@ private void activeNamecShenron(Player pl) {
         }
     }
 
-
     public void sendFlagPlayerToMe(Player me, Player pl) {
         Message msg;
         try {
@@ -1653,7 +1655,7 @@ private void activeNamecShenron(Player pl) {
     }
 
     public void chooseFlag(Player pl, int index) {
-        if (MapService.gI().isMapBlackBallWar(pl.zone.map.mapId) || MapService.gI().isMapMaBu(pl.zone.map.mapId) || MapService.gI().isMapPVP(pl.zone.map.mapId)|| MapService.gI().isMapBanDoKhoBau(pl.zone.map.mapId)|| MapService.gI().isnguhs(pl.zone.map.mapId)) {
+        if (MapService.gI().isMapBlackBallWar(pl.zone.map.mapId) || MapService.gI().isMapMaBu(pl.zone.map.mapId) || MapService.gI().isMapPVP(pl.zone.map.mapId) || MapService.gI().isMapBanDoKhoBau(pl.zone.map.mapId) || MapService.gI().isnguhs(pl.zone.map.mapId)) {
             sendThongBao(pl, "Không thể đổi cờ lúc này!");
             return;
         }
@@ -1665,7 +1667,7 @@ private void activeNamecShenron(Player pl) {
     }
 
     public void attackPlayer(Player pl, int idPlAnPem) {
-        SkillService.gI().useSkill(pl, pl.zone.getPlayerInMap(idPlAnPem), null,null);
+        SkillService.gI().useSkill(pl, pl.zone.getPlayerInMap(idPlAnPem), null, null);
     }
 
     public void releaseCooldownSkill(Player pl) {
