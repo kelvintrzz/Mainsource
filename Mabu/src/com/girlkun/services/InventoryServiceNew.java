@@ -464,8 +464,13 @@ public void addItemGiftCodeToPlayer1(Player p, MaQuaTang1 giftcode) {
     }
 
     public void itemBagToPetBody(Player player, int index) {
+      
         if (player.pet != null ) {
             Item item = player.inventory.itemsBag.get(index);
+            if (item.template.type == 24 || item.template.type == 11 || item.template.type == 72 || item.template.type == 17 ||item.template.type == 18) {
+                Service.gI().sendThongBao(player, "Trang bị không phù hợp và vui lòng không spam");
+                return;
+            }
             if (item.isNotNullItem()) {
                 Item itemSwap = putItemBody(player.pet, item);
                 player.inventory.itemsBag.set(index, itemSwap);

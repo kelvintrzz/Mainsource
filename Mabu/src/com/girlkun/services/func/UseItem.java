@@ -92,12 +92,13 @@ public class UseItem {
                         InventoryServiceNew.gI().itemBodyToBag(player, index);
                     break;
                 case ITEM_BAG_TO_PET_BODY:
-                     if(index > 7){
-                        Service.gI().sendThongBao(player, "Không thể thực hiện và vui lòng không spam");
-                        return;
-                    }else{
-                    InventoryServiceNew.gI().itemBagToPetBody(player, index);
-                    }
+                System.out.println("index :" + index);
+                    //  if(index > 7){
+                    //     Service.gI().sendThongBao(player, "Không thể thực hiện và vui lòng không spam");
+                    //     return;
+                    // }else{
+                     InventoryServiceNew.gI().itemBagToPetBody(player, index);
+                    // }
 
                     break;
                 case ITEM_BODY_PET_TO_BAG:
