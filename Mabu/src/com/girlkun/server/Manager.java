@@ -72,7 +72,7 @@ public class Manager {
     public static long GHSM = 201;
     public static boolean LOCAL = false;
 //    public static byte RATE_EXP_SERVER = 1;// sau khi chinh
-    public static  List<Item> CAITRANG;
+    public static final  List<Item> CAITRANG = new ArrayList<>();
     public static MapTemplate[] MAP_TEMPLATES;
     public static final List<com.girlkun.models.map.Map> MAPS = new ArrayList<>();
     public static final List<ItemOptionTemplate> ITEM_OPTION_TEMPLATES = new ArrayList<>();
