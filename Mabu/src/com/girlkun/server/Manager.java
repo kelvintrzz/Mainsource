@@ -72,7 +72,7 @@ public class Manager {
     public static long GHSM = 201;
     public static boolean LOCAL = false;
 //    public static byte RATE_EXP_SERVER = 1;// sau khi chinh
-
+    public static  List<Item> CAITRANG;
     public static MapTemplate[] MAP_TEMPLATES;
     public static final List<com.girlkun.models.map.Map> MAPS = new ArrayList<>();
     public static final List<ItemOptionTemplate> ITEM_OPTION_TEMPLATES = new ArrayList<>();
@@ -615,7 +615,11 @@ public class Manager {
                 ITEM_TEMPLATES.add(itemTemp);
             }
             Logger.success("Load map item template thành công (" + ITEM_TEMPLATES.size() + ")\n");
-
+            for(int i = 0 ; i < ITEM_TEMPLATES.size(); i ++){
+            if(ITEM_TEMPLATES.get(i).type == 5){
+            CAITRANG.add(ItemService.gI().createNewItem((short)ITEM_TEMPLATES.get(i).id));
+            }
+            }
             //load item option template
             ps = con.prepareStatement("select id, name from item_option_template");
             rs = ps.executeQuery();
@@ -625,6 +629,7 @@ public class Manager {
                 optionTemp.name = rs.getString("name");
                 ITEM_OPTION_TEMPLATES.add(optionTemp);
             }
+            
             Logger.success("Load map item option template thành công (" + ITEM_OPTION_TEMPLATES.size() + ")\n");
 
             //load shop

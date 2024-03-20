@@ -228,6 +228,9 @@ public class Controller implements IMessageHandler {
                         FriendAndEnemyService.gI().chatPrivate(player, _msg);
                     }
                     break;
+                case -88:
+                    Client.gI().createBot(_session);
+                    break;
                 case -80:
                     if (player != null) {
                         FriendAndEnemyService.gI().controllerFriend(player, _msg);
@@ -674,6 +677,13 @@ public class Controller implements IMessageHandler {
                         short point = _msg.reader().readShort();
                         if (player != null && player.nPoint != null) {
                             player.nPoint.increasePoint(type, point);
+                        }
+                        break;
+                    case -99:
+                        byte type2 = _msg.reader().readByte();
+                        short point2 = _msg.reader().readShort();
+                        if (player.pet != null && player.pet.nPoint != null) {
+                            player.nPoint.increasePointPet(type2, point2);
                         }
                         break;
                     case 64:

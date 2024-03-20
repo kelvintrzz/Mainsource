@@ -417,7 +417,7 @@ public class Boss extends Player implements IBossNew, IBossOutfit {
         }
     }
 
-    protected int getRangeCanAttackWithSkillSelect() {
+    public int getRangeCanAttackWithSkillSelect() {
         int skillId = this.playerSkill.skillSelect.template.id;
         if (skillId == Skill.KAMEJOKO || skillId == Skill.MASENKO || skillId == Skill.ANTOMIC) {
             return Skill.RANGE_ATTACK_CHIEU_CHUONG;

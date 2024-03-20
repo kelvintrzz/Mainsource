@@ -27,6 +27,7 @@ import com.girlkun.models.matches.IPVP;
 import com.girlkun.models.matches.TYPE_LOSE_PVP;
 import com.girlkun.models.matches.TYPE_PVP;
 import com.girlkun.models.matches.pvp.DaiHoiVoThuat;
+import com.girlkun.models.mob.Mob;
 import com.girlkun.models.npc.specialnpc.BillEgg;
 import com.girlkun.models.skill.Skill;
 import com.girlkun.server.Manager;
@@ -41,12 +42,14 @@ import com.girlkun.services.InventoryServiceNew;
 import com.girlkun.services.ItemService;
 import com.girlkun.services.PetService;
 import com.girlkun.services.PlayerService;
+import com.girlkun.services.SkillService;
 import com.girlkun.services.TaskService;
 import com.girlkun.services.func.ChangeMapService;
 import com.girlkun.services.func.ChonAiDay;
 import com.girlkun.services.func.CombineNew;
 import com.girlkun.services.func.TopService;
 import com.girlkun.utils.Logger;
+import com.girlkun.utils.SkillUtil;
 import com.girlkun.utils.Util;
 
 import java.util.ArrayList;
@@ -61,6 +64,7 @@ public class Player {
     public boolean isPet;
     public boolean isNewPet;
 //    public boolean isNewPet1;
+    public boolean isBot;
     public int dsk;
     public int qv;
     public int qtt;
@@ -217,11 +221,91 @@ public class Player {
     public boolean isPl() {
         return !isPet && !isBoss && !isNewPet;
     }
+    public void active(){
+        if(this.isBot){
+            if(this.isDie()) this.nPoint.hp = this.nPoint.hpMax;
+            if(this.nPoint.mp<=0) this.nPoint.mp = this.nPoint.mpMax;
+            this.attack();
+        }
+    }
+    public Mob mobTarget;
 
+    public long lastTimeTargetMob;
+
+    public long timeTargetMob;
+
+    public long lastTimeAttack;
+
+    public Mob getMobAttack(){
+        if (this.mobTarget != null && (this.mobTarget.isDie() || !this.zone.equals(this.mobTarget.zone))) {
+            this.mobTarget = null;
+        }
+        if (this.mobTarget == null && Util.canDoWithTime(lastTimeTargetMob, timeTargetMob)) {
+            this.mobTarget = this.zone.getRandomMobInMap();
+            this.lastTimeTargetMob = System.currentTimeMillis();
+            this.timeTargetMob = 500;
+        }
+        return this.mobTarget;
+    }
+    public void attack() {
+        if(this.isBot){
+            //this.mobTarget = this.getMobAttack();
+            if(Util.canDoWithTime(lastTimeAttack,100) && this.mobTarget != null){
+                
+                this.lastTimeAttack = System.currentTimeMillis();
+                try{
+                    Mob m = this.getMobAttack();
+                    if(m == null || m.isDie()) return;
+                    
+                    this.playerSkill.skillSelect = this.playerSkill.skills.get(Util.nextInt(0, this.playerSkill.skills.size() - 1));
+                    //System.out.println(m.name);
+                    if(Util.nextInt(100)<70){
+                        this.playerSkill.skillSelect = this.playerSkill.skills.get(0);
+                    }
+                    if (Util.getDistance(this, m) <= this.getRangeCanAttackWithSkillSelect()) {
+                        if (Util.isTrue(5, 20)) {
+                            if (SkillUtil.isUseSkillChuong(this)) {
+                                this.moveTo(m.location.x + (Util.getOne(-1, 1) * Util.nextInt(20, 200)),
+                                        Util.nextInt(10) % 2 == 0 ? m.location.y : m.location.y );
+                            } else {
+                                this.moveTo(m.location.x + (Util.getOne(-1, 1) * Util.nextInt(10, 40)),
+                                        Util.nextInt(10) % 2 == 0 ? m.location.y : m.location.y );
+                            }
+                        }   
+                        SkillService.gI().useSkill(this, null, m,null);
+                    }else {
+                        this.moveTo(m.location.x, m.location.y);
+                }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }else{
+                this.mobTarget = getMobAttack();
+            }
+        }
+    }
+    public void moveTo(int x, int y) {
+        byte dir = (byte) (this.location.x - x < 0 ? 1 : -1);
+        byte move = (byte) Util.nextInt(40, 60);
+        if(isBot) move = (byte) (move*(byte)2);
+        PlayerService.gI().playerMove(this, this.location.x + (dir == 1 ? move : -move), y + (Util.isTrue(3, 10) ? -50 : 0));
+    }
+    public int getRangeCanAttackWithSkillSelect() {
+        int skillId = this.playerSkill.skillSelect.template.id;
+        if (skillId == Skill.KAMEJOKO || skillId == Skill.MASENKO || skillId == Skill.ANTOMIC) {
+            return Skill.RANGE_ATTACK_CHIEU_CHUONG;
+        } else if (skillId == Skill.DRAGON || skillId == Skill.DEMON || skillId == Skill.GALICK) {
+            return Skill.RANGE_ATTACK_CHIEU_DAM;
+        }
+        return 752002;
+    }
     public void update() {
+         if(this.isBot){
+            active();
+        }
         if (!this.beforeDispose) {
             try {
-                if (!iDMark.isBan()) {
+                if (!iDMark.isBan() && !isBot) {
 
                     if (nPoint != null) {
                         nPoint.update();

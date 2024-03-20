@@ -65,7 +65,12 @@ public class Zone {
             mob.update();
         }
     }
-
+ public Mob getRandomMobInMap(){
+        if(!this.mobs.isEmpty()){
+            return this.mobs.get(Util.nextInt(this.mobs.size()));
+        }
+        return null;
+    }
     private void udPlayer() {
         for (int i = this.notBosses.size() - 1; i >= 0; i--) {
             Player pl = this.notBosses.get(i);

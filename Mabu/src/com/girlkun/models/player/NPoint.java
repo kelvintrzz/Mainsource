@@ -2116,7 +2116,73 @@ public class NPoint {
         }
         Service.gI().point(player);
     }
-
+ public void increasePointPet(byte type, short point) {
+        if (point <= 0 || point > 100) {
+            return;
+        }
+        long tiemNangUse = 0;
+        if (type == 0) {
+            int pointHp = point * 20;
+            tiemNangUse = point * (2 * (this.player.pet.nPoint.hpg + 1000) + pointHp - 20) / 2;
+            if ((this.player.pet.nPoint.hpg + pointHp) <= getHpMpLimit()) {
+                if (doUseTiemNangPet(tiemNangUse)) {
+                    this.player.pet.nPoint.hpg += pointHp;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                return;
+            }
+        }
+        if (type == 1) {
+            int pointMp = point * 20;
+            tiemNangUse = point * (2 * (this.player.pet.nPoint.mpg + 1000) + pointMp - 20) / 2;
+            if ((this.player.pet.nPoint.mpg + pointMp) <= getHpMpLimit()) {
+                if (doUseTiemNangPet(tiemNangUse)) {
+                    this.player.pet.nPoint.mpg += pointMp;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                return;
+            }
+        }
+        if (type == 2) {
+            tiemNangUse = point * (2 * this.player.pet.nPoint.dameg + point - 1) / 2 * 100;
+            if ((this.player.pet.nPoint.dameg + point) <= getDameLimit()) {
+                if (doUseTiemNangPet(tiemNangUse)) {
+                    this.player.pet.nPoint.dameg += point;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                return;
+            }
+        }
+        if (type == 3) {
+            tiemNangUse = 2 * (this.player.pet.nPoint.defg + 5) / 2 * 100000;
+            if ((this.player.pet.nPoint.defg + point) <= getDefLimit()) {
+                if (doUseTiemNangPet(tiemNangUse)) {
+                    this.player.pet.nPoint.defg += point;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                return;
+            }
+        }
+        if (type == 4) {
+            tiemNangUse = 50000000L;
+            for (int i = 0; i < this.player.pet.nPoint.critg; i++) {
+                tiemNangUse *= 5L;
+            }
+            if ((this.player.pet.nPoint.critg + point) <= getCritLimit()) {
+                if (this.doUseTiemNangPet(tiemNangUse)) {
+                    this.player.pet.nPoint.critg += point;
+                }
+            } else {
+                Service.gI().sendThongBaoOK(player, "Vui lÃ²ng má»Ÿ giá»›i háº¡n sá»©c máº¡nh");
+                return;
+            }
+        }
+        Service.gI().showInfoPet(player);
+    }
     private boolean doUseTiemNang(long tiemNang) {
         if (this.tiemNang < tiemNang) {
             Service.gI().sendThongBaoOK(player, "Báº¡n khÃ´ng Ä‘á»§ tiá»m nÄƒng");
@@ -2129,7 +2195,17 @@ public class NPoint {
         }
         return false;
     }
-
+private boolean doUseTiemNangPet(long tiemNang) {
+        if (this.player.pet.nPoint.tiemNang < tiemNang) {
+            Service.gI().sendThongBaoOK(player, "Báº¡n khÃ´ng Ä‘á»§ tiá»m nÄƒng");
+            return false;
+        }
+        if (this.player.pet.nPoint.tiemNang >= tiemNang && this.tiemNang - tiemNang >= 0) {
+            this.player.pet.nPoint.tiemNang -= tiemNang;
+            return true;
+        }
+        return false;
+    }
     //--------------------------------------------------------------------------
     private long lastTimeHoiPhuc;
     private long lastTimeHoiStamina;
