@@ -1785,8 +1785,8 @@ public class Service {
                 msg.writer().writeLong((pl.pet.nPoint.hpg)); //hpg
                 msg.writer().writeLong((pl.pet.nPoint.mpg)); //hp
                 msg.writer().writeLong((pl.pet.nPoint.dameg)); //hp
-                msg.writer().writeLong((pl.pet.nPoint.defg)); //hp
-                msg.writer().writeLong((pl.pet.nPoint.critg)); //hp
+                msg.writer().writeShort((pl.pet.nPoint.defg)); //hp
+                msg.writer().writeByte((pl.pet.nPoint.critg)); //hp
                 int sizeSkill = pl.pet.playerSkill.skills.size();
                 msg.writer().writeByte(5); //counnt pet skill
                 for (int i = 0; i < pl.pet.playerSkill.skills.size(); i++) {
